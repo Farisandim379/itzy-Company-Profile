@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name ="color-scheme" content="light dark">
+    <title>Itzy | Company Profile</title>
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+
+    <header>
+        <div class="container">
+            <div class="header-left">
+                <h1><span class="header-title">I</span>tzy</h1>
+            </div>
+            <nav class="header-right">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#latestnews">News</a></li>
+                    <li><a href="#members">Members</a></li>
+                    <li><a href="#featuredMusic">Music Videos</a></li>
+                </ul>
+            </nav>
+
+            <button id="hamburger-menu" aria-label="Toggle Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <!-- 1. Home section -->
+        <section id="home" class="hero-section container">
+            <div class="hero-content">
+                <p>
+                    Merupakan grup idol di bawah naungan agensi "JYP Entertainment". Terdiri dari anggota-anggota berbakat dengan pesona unik, grup ini bertujuan untuk menyebarkan energi positif dan inspirasi melalui musik dan penampilannya.
+                </p>
+                <a href="#" class="btn-learn-more">LEBIH LANJUT</a>
+            </div>
+            <div class="hero-image">
+                <img src="assets/itzylogo.jpeg" alt="Itzy Logo">
+            </div>
+        </section>
+
+        <!-- 2. Section news -->
+        <section id="latestnews" class="news-section">
+            <div class="container">
+                <h2 class="section-title">Latest News</h2>
+                
+                <article class="news-card">
+                    <div class="news-image">
+                        <img src="assets/borntobe.jpeg" alt="ITZY World Tour Announcement">
+                    </div>
+                    <div class="news-content">
+                        <p class="news-date">September 6, 2025</p>
+                        <h3>ITZY Announces "BORN TO BE" World Tour!</h3>
+                        <p class="news-summary">
+                            JYP Entertainment has officially announced ITZY's highly anticipated second world tour, "BORN TO BE". The tour will kick off in Seoul and visit major cities across Asia, North America, and Europe. MIDZYs around the world are excited!
+                        </p>
+                        <a href="#" class="news-link">Read More &rarr;</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+        
+        <!-- 3. Section members -->
+        <section id="members" class="members-section">
+            <div class="container">
+                <h2 class="section-title">Meet Our Members</h2>
+                <div class="member-cards-container">
+                    </div>
+            </div>
+        </section>
+        
+        <!-- 4. Section music video -->
+        <section id="featuredMusic" class="mv-slider-section">
+            <div class="container">
+                <h2 class="section-title">Featured Music Videos</h2>
+                <div class="slider-wrapper">
+                    <button class="slider-btn prev-btn" aria-label="Previous Video"><i class="fas fa-chevron-left"></i></button>
+                    <div class="slider-container">
+                        <div class="slider-track">
+                            </div>
+                    </div>
+                    <button class="slider-btn next-btn" aria-label="Next Video"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Social media sidebar -->
+        <aside class="social-sidebar">
+            <ul>
+                <li>
+                    <a href="https://www.youtube.com/@ITZY/featured" target="_blank" rel="noopener noreferre">
+                        <img src="assets/logomedsos/ytlogo.png" alt="YouTube Logo">
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.instagram.com/itzy.all.in.us/" target="_blank" rel="noopener noreferre">
+                        <img src="assets/logomedsos/iglogo.png" alt="Instagram Logo">
+                    </a>
+                </li>
+                <li>
+                    <a href="https://x.com/ITZYofficial" target="_blank" rel="noopener noreferre">
+                        <img src="assets/logomedsos/xlogo.png" alt="X (Twitter) Logo">
+                    </a>
+                </li>
+            </ul>
+        </aside>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2026 JYP Entertainment. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

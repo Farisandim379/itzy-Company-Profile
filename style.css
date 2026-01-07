@@ -1,0 +1,661 @@
+/* ================================= 
+   1. PENGATURAN DASAR & FONT
+==================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Quicksand', sans-serif;
+    line-height: 1.6;
+    background-color: #ffffff;
+    color: #333;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+
+/* ================================= 
+   2. HEADER & NAVIGASI
+==================================== */
+header {
+    background-color: #ffffff;
+    padding: 20px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    transition: background-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 28px;
+}
+
+header h1 {
+    font-size: 2rem;
+    margin: 0;
+    color: #333;
+    font-weight: 700;
+    transition: color 0.4s ease;
+}
+
+.header-title {
+    color: #d9006c;
+}
+
+header nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+header nav ul li {
+    display: inline-block;
+    margin-left: 30px;
+}
+
+header nav a {
+    color: #555;
+    text-decoration: none;
+    font-weight: 700;
+    transition: color 0.3s;
+}
+
+header nav a:hover {
+    color: #d9006c;
+}
+
+header.scrolled nav a:hover {
+    color: #d9006c;
+}
+
+
+/* Header saat di-scroll */
+header.scrolled {
+    background-color: rgba(26, 26, 26, 0.85);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+}
+
+header.scrolled h1,
+header.scrolled nav a {
+    color: #ffffff;
+}
+
+
+/* ================================= 
+   3. HAMBURGER MENU
+==================================== */
+#hamburger-menu {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 24px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1001;
+}
+
+#hamburger-menu span {
+    width: 100%;
+    height: 3px;
+    background-color: #333;
+    border-radius: 2px;
+    transition: all 0.3s ease-in-out;
+}
+
+header.scrolled #hamburger-menu span {
+    background-color: #fff;
+}
+
+/* Animasi Hamburger menjadi 'X' */
+#hamburger-menu.active span:nth-child(1) {
+    transform: translateY(10.5px) rotate(45deg);
+}
+
+#hamburger-menu.active span:nth-child(2) {
+    opacity: 0;
+}
+
+#hamburger-menu.active span:nth-child(3) {
+    transform: translateY(-10.5px) rotate(-45deg);
+}
+
+
+/* ================================= 
+   4. MAIN CONTENT & HERO SECTION
+==================================== */
+main {
+    padding-top: 80px;
+}
+
+.hero-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: calc(100vh - 80px);
+    padding: 50px 0;
+    gap: 50px;
+}
+
+.hero-content {
+    flex: 1;
+    max-width: 500px;
+}
+
+.hero-content p {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 25px;
+}
+
+.btn-learn-more {
+    display: inline-block;
+    background-color: #333;
+    color: #ffffff;
+    padding: 12px 30px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: background-color 0.3s;
+}
+
+.btn-learn-more:hover {
+    background-color: #555;
+}
+
+.hero-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 400px;
+}
+
+.hero-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 15px;
+}
+
+
+/* ================================= 
+   5. MEMBER CARDS SECTION
+==================================== */
+.members-section {
+    padding: 60px 0;
+    background-color: #1a1a1a;
+    color: #ffffff;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #fff;
+    margin-bottom: 40px;
+    font-weight: 700;
+}
+
+.member-cards-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.member-card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    text-align: left;
+    flex-basis: 280px;
+    overflow: hidden;
+    border: 1px solid #444444;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out, box-shadow 0.3s ease;
+}
+
+.member-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.member-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+}
+
+.member-photo {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+}
+
+.member-info {
+    padding: 20px 15px;
+}
+
+.member-card h3 {
+    font-size: 1.5rem;
+    color: #d9006c;
+    margin: 0 0 5px 0;
+}
+
+.member-card .member-role {
+    font-size: 1rem;
+    color: #1a1a1a;
+    font-weight: 400;
+    margin: 0;
+}
+
+/* ================================= 
+   5.5. NEWS (ARTICLE) SECTION
+==================================== */
+.news-section {
+    padding: 60px 0;
+    background-color: #f4f7f9; /* Latar belakang abu-abu terang */
+}
+
+/* Mengubah warna judul khusus untuk section ini */
+.news-section .section-title {
+    color: #333;
+}
+
+.news-card {
+    display: flex; /* Layout berdampingan untuk gambar dan teks */
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    transition: box-shadow 0.3s ease;
+}
+
+.news-card:hover {
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+.news-image {
+    flex: 0 0 40%; /* Lebar gambar 40% dari kartu */
+}
+
+.news-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Memastikan gambar mengisi area tanpa distorsi */
+    display: block;
+}
+
+.news-content {
+    flex: 1; /* Teks mengambil sisa ruang */
+    padding: 30px;
+}
+
+.news-date {
+    font-size: 0.9rem;
+    color: #888;
+    margin-bottom: 10px;
+}
+
+.news-content h3 {
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.news-summary {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.news-link {
+    text-decoration: none;
+    color: #d9006c;
+    font-weight: 700;
+    transition: color 0.3s ease;
+}
+
+.news-link:hover {
+    color: #333;
+}
+
+
+/* ================================= 
+   6. MV SLIDER SECTION
+==================================== */
+.mv-slider-section {
+    padding: 60px 0;
+    background-color: #121212;
+}
+
+.slider-wrapper {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slider-container {
+    width: 90%;
+    overflow: hidden;
+}
+
+.slider-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slider-card {
+    flex: 0 0 100%;
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+
+.slider-card a {
+    display: block;
+    text-decoration: none;
+    color: #fff;
+    background-color: #282828;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.slider-card a:hover {
+    transform: scale(1.03);
+}
+
+.video-thumbnail {
+    position: relative;
+}
+
+.video-thumbnail img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.video-thumbnail .play-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 48px;
+    color: rgba(255, 255, 255, 0.8);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.slider-card a:hover .play-icon {
+    opacity: 1;
+}
+
+.video-title {
+    padding: 15px;
+    font-weight: 700;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.slider-btn {
+    background-color: rgba(40, 40, 40, 0.7);
+    border: none;
+    color: #fff;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 50%;
+    z-index: 10;
+    transition: background-color 0.3s ease;
+}
+
+.slider-btn:hover {
+    background-color: #d9006c;
+}
+
+.prev-btn {
+    margin-right: 10px;
+}
+
+.next-btn {
+    margin-left: 10px;
+}
+
+.slider-btn:disabled {
+    background-color: #282828;
+    color: #555;
+    cursor: not-allowed;
+}
+
+
+/* ================================= 
+   7. SOCIAL MEDIA SIDEBAR
+==================================== */
+.social-sidebar {
+    position: fixed;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #333;
+    padding: 15px 10px;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+}
+
+.social-sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.social-sidebar ul li {
+    margin-bottom: 15px;
+}
+
+.social-sidebar ul li:last-child {
+    margin-bottom: 0;
+}
+
+.social-sidebar a {
+    display: block;
+}
+
+.social-sidebar img {
+    width: 28px;
+    height: 28px;
+    display: block;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.social-sidebar a:hover img {
+    opacity: 0.7;
+    transform: scale(1.1);
+}
+
+/* ================================= 
+   8. FOOTER
+==================================== */
+footer {
+    background-color: #f4f4f4;
+    color: #666;
+    text-align: center;
+    padding: 20px 0;
+    border-top: 1px solid #eee;
+}
+
+
+
+/* ================================= 
+   9. RESPONSIVE DESIGN
+==================================== */
+
+@media (min-width: 768px) {
+    .slider-card {
+        flex-basis: 50%;
+    }
+}
+
+@media (min-width: 1024px) {
+    .slider-card {
+        flex-basis: 33.333%;
+    }
+}
+
+.slider-btn {
+    
+    padding: 10px;
+    font-size: 20px;
+}
+
+
+.slider-wrapper {
+    position: relative;
+    width: 100%;
+    
+}
+
+.slider-btn {
+    position: absolute;
+    top: 40%; 
+    transform: translateY(-50%);
+}
+
+.prev-btn {
+    left: 15px;
+}
+
+.next-btn {
+    right: 15px;
+}
+
+
+@media (max-width: 768px) {
+
+    main {
+        padding-top: 80px;
+    }
+
+    .header-right {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 250px;
+        height: 100vh;
+        background-color: #1a1a1a;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transition: right 0.4s ease-in-out;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .header-right.active {
+        right: 0;
+    }
+
+    .header-right ul {
+        list-style: none;
+        padding: 0;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .header-right ul li {
+        width: 100%;
+        text-align: center;
+        margin: 0;
+    }
+
+    .header-right ul li a {
+        display: block;
+        padding: 20px 0;
+        font-size: 1.2rem;
+        color: #fff;
+    }
+
+    #hamburger-menu {
+        display: flex;
+    }
+
+    /* --- Hero Section --- */
+    .hero-section {
+        flex-direction: column;
+        text-align: center;
+        padding: 30px 0;
+    }
+
+    .hero-content {
+        max-width: 100%;
+        padding: 0 20px;
+    }
+
+    /* --- Sections Title --- */
+    .section-title {
+        font-size: 2rem;
+    }
+
+    /* --- Member Cards --- */
+    .member-card {
+        flex-basis: 90%;
+        max-width: 340px;
+    }
+
+    .slider-container {
+        width: 100%;
+    }
+
+    /* --- Social Sidebar & Footer --- */
+    .social-sidebar {
+        position: static;
+        transform: none;
+        width: 100%;
+        border-radius: 0;
+        box-shadow: none;
+        padding: 15px 0;
+        background-color: #f4f4f4;
+    }
+
+    .social-sidebar ul {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+    }
+
+    .social-sidebar ul li {
+        margin-bottom: 0;
+    }
+
+    .social-sidebar img {
+        filter: invert(0.5);
+    }
+
+    footer {
+        display: none;
+    }
+}
